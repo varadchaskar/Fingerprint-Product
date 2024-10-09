@@ -25,19 +25,8 @@ static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf[screenWidth * 10];
 
 // Global objects
-lv_obj_t *fingerLabel;
-lv_obj_t *inputTextArea;
-lv_obj_t *keyboard;
-lv_obj_t *idLabel;
-lv_obj_t *returnButton;
 lv_obj_t *dropdown;
-lv_obj_t *scanResultLabel;
-lv_timer_t *password_timer = NULL;
-
-uint8_t id = 0;  // Fingerprint ID to be enrolled
-bool enrollingMode = false;
-bool scanningMode = false;
-bool idInputMode = true;  // Start by asking for ID
+lv_obj_t *statusLabel;
 
 /* Touch calibration */
 void touch_calibrate() {
@@ -79,35 +68,42 @@ void touch_calibrate() {
 
 // Function to handle dropdown selection
 void dropdown_event_handler(lv_event_t *e) {
-  lv_obj_t *dropdown = lv_event_get_target(e);
-  uint16_t selected = lv_dropdown_get_selected(dropdown);
-  const char *selected_option = lv_dropdown_get_text(dropdown);
+  lv_event_code_t code = lv_event_get_code(e);
+  if (code == LV_EVENT_VALUE_CHANGED) {
+   char selected_str[32];
+        lv_dropdown_get_selected_str(dropdown, selected_str, sizeof(selected_str));
 
-  // Process based on the selected option
-  if (strcmp(selected_option, "Enroll") == 0) {
-    Serial.println("Enroll selected");
-    // Enroll functionality code here
-  } else if (strcmp(selected_option, "Scan") == 0) {
-    Serial.println("Scan selected");
-    // Scan functionality code here
-  } else if (strcmp(selected_option, "Delete") == 0) {
-    Serial.println("Delete selected");
-    // Delete functionality code here
-  } else if (strcmp(selected_option, "Password Remove") == 0) {
-    Serial.println("Password Remove selected");
-    // Password remove functionality code here
+  // Update the label based on the selected option
+  if (strcmp(selected_str, "Enroll") == 0) {
+    lv_label_set_text(statusLabel, "Enrolling...");
+  } else if (strcmp(selected_str, "Scan") == 0) {
+    lv_label_set_text(statusLabel, "Scanning...");
+  } else if (strcmp(selected_str, "Delete") == 0) {
+    lv_label_set_text(statusLabel, "Deleting...");
+  } else if (strcmp(selected_str, "Password") == 0) {
+    lv_label_set_text(statusLabel, "Enter Password:");
+    // You can also trigger a text area for password input here if needed
   }
+
+  // Redraw the label to reflect changes
+  lv_obj_align(statusLabel, LV_ALIGN_BOTTOM_MID, 0, -10); // Position it near the bottom
+}
 }
 
 // Function to create the dropdown menu
 void create_dropdown() {
   dropdown = lv_dropdown_create(lv_scr_act());
   lv_dropdown_set_options(dropdown, "Enroll\nScan\nDelete\nPassword");
-  lv_obj_set_width(dropdown, 150);
-  lv_obj_align(dropdown, LV_ALIGN_CENTER, 0, -40);
+  lv_obj_set_width(dropdown, 100);
+  lv_obj_align(dropdown, LV_ALIGN_TOP_RIGHT, -10, 10);  // Align dropdown to the top-right corner
 
   // Event handler for dropdown selection
   lv_obj_add_event_cb(dropdown, dropdown_event_handler, LV_EVENT_VALUE_CHANGED, NULL);
+
+  // Create a status label for showing selected option
+  statusLabel = lv_label_create(lv_scr_act());
+  lv_label_set_text(statusLabel, "Select an option...");
+  lv_obj_align(statusLabel, LV_ALIGN_BOTTOM_MID, 0, -10); // Position label at the bottom
 }
 
 /* Display flushing */
