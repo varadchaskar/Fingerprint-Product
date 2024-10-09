@@ -15,11 +15,10 @@
 #include "Globals.h" 
 
 // Pins and TFT setup
-#define RX_PIN 25
-#define TX_PIN 33
 #define TOUCH_CS 21
 
 TFT_eSPI tft = TFT_eSPI(); 
+
 HardwareSerial mySerial(2); 
 Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 

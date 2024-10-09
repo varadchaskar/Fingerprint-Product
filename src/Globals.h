@@ -7,4 +7,7 @@ extern lv_obj_t *statusLabel;
 extern lv_obj_t *keyboard;
 extern lv_obj_t *password_area;
 
+#define RX_PIN 25
+#define TX_PIN 33
+
 #endif
