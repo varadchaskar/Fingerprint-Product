@@ -124,6 +124,26 @@ void lvgl_port_tp_read(lv_indev_drv_t *indev, lv_indev_data_t *data) {
     }
 }
 
+void show_initial_screen() {
+    lv_obj_clean(lv_scr_act());  // Clear the screen
+
+    // Create a label for the title
+    lv_obj_t* title = lv_label_create(lv_scr_act());
+    lv_label_set_text(title, "Fingerprint System");
+    lv_obj_align(title, LV_ALIGN_TOP_MID, 0, 10);
+
+    // Create a dropdown menu for options
+    lv_obj_t* dropdown = lv_dropdown_create(lv_scr_act());
+    lv_dropdown_set_options(dropdown, "Enroll\nScan\nDelete\nPassword");
+    lv_obj_align(dropdown, LV_ALIGN_CENTER, 0, -30);
+    lv_obj_add_event_cb(dropdown, dropdown_event_handler, LV_EVENT_VALUE_CHANGED, NULL);
+
+    // Optionally create a status label
+    lv_obj_t* status_label = lv_label_create(lv_scr_act());
+    lv_label_set_text(status_label, "Select an option from the menu");
+    lv_obj_align(status_label, LV_ALIGN_CENTER, 0, 40);
+}
+
 void setup() {
     Serial.begin(115200);
     mySerial.begin(57600, SERIAL_8N1, RX_PIN, TX_PIN);
