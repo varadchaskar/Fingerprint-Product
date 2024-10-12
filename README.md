@@ -3,7 +3,7 @@
 <h1>Embedded Fingerprint Authentication System with Touch-Screen Interface</h1>
 
 <p>
-  This project implements an embedded fingerprint authentication system using an Arduino-compatible microcontroller, a fingerprint sensor, and a touch-screen display. The code is organized into modular components for easy maintenance and scalability, following the Google C++ Style Guide.
+  This project implements an embedded fingerprint authentication system using an Arduino-compatible microcontroller, a fingerprint sensor, and a touch-screen display. The code is organized into modular components for easy maintenance and scalability.
 </p>
 
 <h2>Features</h2>
