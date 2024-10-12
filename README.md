@@ -56,19 +56,3 @@
   <li><code>hardware.h</code> / <code>hardware.cpp</code>: Contains hardware-related functions and definitions.</li>
   <li><code>ui.h</code> / <code>ui.cpp</code>: Contains user interface logic and event handlers.</li>
 </ul>
-
-<h2>Contributing</h2>
-<p>
-  Contributions are welcome! Please follow the coding standards outlined in the Google C++ Style Guide and ensure that your code is well-documented.
-</p>
-
-<h2>License</h2>
-<p>
-  This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.
-</p>
-
-<h2>Acknowledgments</h2>
-<ul>
-  <li>Adafruit for the fingerprint sensor library</li>
-  <li>LVGL community for the graphics library</li>
-</ul>
