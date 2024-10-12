@@ -3,7 +3,7 @@
 <h1>Embedded Fingerprint Authentication System with Touch-Screen Interface</h1>
 
 <p>
-  This project implements an embedded fingerprint authentication system using an Arduino-compatible microcontroller, a fingerprint sensor, and a touch-screen display. The code is organized into modular components for easy maintenance and scalability.
+  This project implements an embedded fingerprint authentication system using an Arduino framework-compatible microcontroller, a fingerprint sensor, and a touch-screen display. The code is organized into modular components for easy maintenance and scalability.
 </p>
 
 <h2>Features</h2>
@@ -16,7 +16,7 @@
 
 <h2>Hardware Requirements</h2>
 <ul>
-  <li>Arduino-compatible microcontroller (e.g., ESP32)</li>
+  <li>Arduino framework-compatible microcontroller (e.g., ESP32)</li>
   <li>Fingerprint sensor module (e.g., Adafruit Fingerprint Sensor)</li>
   <li>TFT touch-screen display compatible with TFT_eSPI library</li>
   <li>SD card module (if required for additional storage)</li>
@@ -24,8 +24,8 @@
 
 <h2>Software Requirements</h2>
 <ul>
-  <li>Arduino IDE or compatible development environment</li>
-  <li>Arduino libraries:
+  <li>Platform IO or compatible development environment</li>
+  <li>libraries:
     <ul>
       <li><code>ArduinoJson</code></li>
       <li><code>Adafruit_Fingerprint</code></li>
@@ -39,9 +39,9 @@
 <h2>Installation</h2>
 <ol>
   <li>Clone this repository to your local machine.</li>
-  <li>Install the required Arduino libraries via the Library Manager or manually.</li>
+  <li>Install the required libraries via the Library Manager or manually.</li>
   <li>Configure the hardware connections as per the pin definitions in <code>hardware.h</code>.</li>
-  <li>Open the project in the Arduino IDE.</li>
+  <li>Open the project in the Platform IO or Arduino IDE.</li>
   <li>Upload the code to your microcontroller.</li>
 </ol>
 
