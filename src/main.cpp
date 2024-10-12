@@ -1,3 +1,17 @@
+/*
+ * Fingerprint Authentication System with Touch-Screen Interface
+ *
+ * This program initializes the hardware components and the LVGL library,
+ * setting up the user interface for fingerprint enrollment, scanning,
+ * deletion, and password entry. 
+ *
+ * Author: Varad Chaskar
+ * Date: 11 Oct. 2024
+ *
+ * Note: Ensure all required hardware components are connected as per
+ * the configurations specified in hardware.h.
+ */
+
 #include "hardware.h"
 #include "ui.h"
 #include <lvgl.h>
