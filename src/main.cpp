@@ -2,6 +2,7 @@
 #include "ui.h"
 #include <lvgl.h>
 
+/* Main setup function */
 void setup() {
   // Initialize hardware components
   InitializeHardware();
@@ -26,10 +27,11 @@ void setup() {
   indev_drv.read_cb = LVGLPortTPRead;
   lv_indev_drv_register(&indev_drv);
 
-  // Set up the UI
+  // Set up the UI components
   SetupUI();
 }
 
+/* Main loop function */
 void loop() {
   // Refresh LVGL GUI
   lv_timer_handler();

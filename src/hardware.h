@@ -2,22 +2,22 @@
 #define HARDWARE_H_
 
 // Include necessary libraries for hardware functionality
-#include <Arduino.h>        // Core Arduino library
-#include <FS.h>             // Filesystem library
-#include <SPI.h>            // SPI communication library
-#include <SPIFFS.h>         // SPI Flash File System library
-#include <Adafruit_Fingerprint.h>  // Library for fingerprint sensor
-#include <TFT_eSPI.h>       // TFT display library
-#include <ArduinoJson.h>
+#include <Arduino.h>                   // Core Arduino library
+#include <FS.h>                        // Filesystem library
+#include <SPI.h>                       // SPI communication library
+#include <SPIFFS.h>                    // SPI Flash File System library
+#include <Adafruit_Fingerprint.h>      // Library for fingerprint sensor
+#include <TFT_eSPI.h>                  // TFT display library
+#include <ArduinoJson.h>               // JSON library
 
 // Hardware pin definitions
-#define RX_PIN 25  // Fingerprint sensor RX pin
-#define TX_PIN 33  // Fingerprint sensor TX pin
+#define RX_PIN 25    // Fingerprint sensor RX pin
+#define TX_PIN 33    // Fingerprint sensor TX pin
 #define TOUCH_CS 21  // Touch screen chip select pin
 
 // Extern declarations for hardware instances
-extern TFT_eSPI tft;               // TFT display instance
-extern HardwareSerial mySerial;    // Hardware serial for fingerprint sensor
+extern TFT_eSPI tft;                 // TFT display instance
+extern HardwareSerial mySerial;      // Hardware serial for fingerprint sensor
 extern Adafruit_Fingerprint finger;  // Fingerprint sensor instance
 
 // Screen resolution constants
